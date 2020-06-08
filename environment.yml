@@ -6,10 +6,7 @@ channels:
 dependencies:
 - python=2.7
 - numpy
-- pip
 - pytorch=1.0.0
 - tqdm
-- pip:
-  - torch==1.0.0
-  - torchvision==0.2.1
+- torchvision==0.2.1
 

@@ -72,7 +72,7 @@ You are encouraged to cite the following paper.
 
 1. Create environment
 ```bash
-conda env create --prefix="./.venv" -f environment.yml
+conda env create --prefix="./.venv" --file=environment.yml
 ```
 
 1. Activate environment
