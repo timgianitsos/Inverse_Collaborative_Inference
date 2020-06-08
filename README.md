@@ -67,3 +67,21 @@ You are encouraged to cite the following paper.
   organization={ACM}
 }
 ```
+
+### 5.Environment Setup
+
+1. Create environment
+```bash
+conda env create --prefix="./.venv" -f environment.yml
+```
+
+1. Activate environment
+```bash
+conda activate "./.venv"
+```
+
+1. Deactivate environment
+```bash
+conda deactivate
+```
+

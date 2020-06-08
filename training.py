@@ -15,6 +15,7 @@ import torch.nn as nn
 import torch.nn.functional as F
 import torch.optim as optim
 import torch.backends.cudnn as cudnn
+from tqdm import trange
 
 from net import *
 from utils import *
@@ -117,10 +118,10 @@ def train(DATASET = 'CIFAR10', network = 'CIFAR10CNN', NEpochs = 200, imageWidth
 
     NBatch = len(trainset) / BatchSize
     cudnn.benchmark = True
-    for epoch in range(NEpochs):
+    for epoch in trange(NEpochs):
         lossTrain = 0.0
         accTrain = 0.0
-        for i in range(NBatch):
+        for i in trange(NBatch):
             try:
                 batchX, batchY = trainIter.next()
             except StopIteration:
@@ -186,7 +187,7 @@ if __name__ == '__main__':
         parser.add_argument('--decrease_LR', type = int, default = 20)
 
         parser.add_argument('--nogpu', dest='gpu', action='store_false')
-        parser.set_defaults(gpu=True)
+        parser.set_defaults(gpu=torch.cuda.is_available())
         args = parser.parse_args()
 
         model_dir = "checkpoints/" + args.dataset + '/'
